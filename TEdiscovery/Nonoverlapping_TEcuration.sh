@@ -2,7 +2,7 @@
 
 #########
 #creating the nonoverlapping annotation file with the following precedence: rRNA>knownTE>simplerepeats>unknownrepeat
-#rules for resolving the overlaps: just remove the section that was overlapping and at the end filter out anything that is shorter than 15 bp?
+#rules for resolving the overlaps: just remove the section that was overlapping and at the end filter out anything that is shorter than 20 bp
 #####
 #files
 rDNAgff=/ohta1/solomiya.hnatovska/genome2/rnammer-1.2/amaranthusRun/AMATA_rdna_output.gff
