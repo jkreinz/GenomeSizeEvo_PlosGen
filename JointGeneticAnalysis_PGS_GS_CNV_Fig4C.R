@@ -110,9 +110,9 @@ ggplot(data=test2, aes(PRS_adj,FTmeans.x)) +
   theme_bw() +
   labs(y="Flowering Time\nFamily Mean", x="PVGFT")
 ####
-ibrary(r2glmm)
-ibrary(lsmeans)
-s_lsmeans<-lsmip(PH_PRS_model, ~ genomesize_scale ,
+library(r2glmm)
+library(lsmeans)
+gs_lsmeans<-lsmip(PH_PRS_model, ~ genomesize_scale ,
                    at=list(genomesize_scale=c(-3,-2.5,-2,-1.5,-1,-0.5,0,0.5,1,1.5,2)),
                    type="response",
                    plotit=F)
@@ -149,8 +149,6 @@ purp<-met.brewer("VanGogh1",6)
       theme(legend.position = "right") +
       scale_color_manual(labels=c("Genome Size","NADH Cluster Copy Number","PRS"),
                          values=c("grey60", "forestgreen","#7dba14")) +
-      #geom_ribbon(data=rRNA_lsmeans, aes(y=yvar,x=rRNA_scale,ymin=yvar-SE,ymax=yvar+SE), fill=purp[3],alpha=.5) +
-      #geom_ribbon(data=lat_lsmeans, aes(y=yvar,x=Lat_scale,ymin=yvar-SE,ymax=yvar+SE), fill="black",alpha=.9) +
       geom_ribbon(data=copygeno_lsmeans, aes(y=yvar,x=cg_scale,ymin=yvar-SE,ymax=yvar+SE), fill="forestgreen",alpha=.9) +
       geom_ribbon(data=gs_lsmeans, aes(y=yvar,x=genomesize_scale,ymin=yvar-SE,ymax=yvar+SE), fill="grey60",alpha=.9) +
       geom_ribbon(data=PRS_lsmeans, aes(y=yvar,x=PRS_adj,ymin=yvar-SE,ymax=yvar+SE), fill="#7dba14",alpha=.9) 
